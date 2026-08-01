@@ -1,0 +1,116 @@
+<title>Order - Cafe Delight</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h1>☕ Cafe Delight</h1>
+</div>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="menu.html">Menu</a></li>
+<li><a href="order.html" class="active">Order</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+
+</header>
+
+<section>
+
+<h2>Customer Details</h2>
+
+<form id="orderForm">
+
+<label>Full Name</label>
+<input type="text" id="name" required>
+
+<label>Phone Number</label>
+<input type="tel" id="phone" required>
+
+<label>Email Address</label>
+<input type="email" id="email" required>
+
+<label>Delivery Address</label>
+<textarea id="address" required></textarea>
+
+<label>Payment Method</label>
+
+<select id="payment">
+
+<option>Cash on Delivery</option>
+
+<option>Credit / Debit Card</option>
+
+<option>UPI</option>
+
+</select>
+
+</form>
+
+</section>
+
+<section>
+
+<h2>Your Order</h2>
+
+<div id="cartItems">
+
+</div>
+
+<h2 id="totalPrice">
+Total: ₹0.00
+</h2>
+
+<br>
+
+<button onclick="placeOrder()">
+Place Order
+</button>
+
+</section>
+
+<footer>
+
+<p>&copy; 2026 Cafe Delight. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+function placeOrder(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let email=document.getElementById("email").value;
+let address=document.getElementById("address").value;
+
+if(name=="" || phone=="" || email=="" || address==""){
+
+alert("Please fill all the details.");
+
+return;
+
+}
+
+alert("🎉 Thank You " + name + "!\n\nYour order has been placed successfully.");
+
+localStorage.removeItem("cart");
+
+window.location="menu.html";
+
+}
+
+</script>
+
+</body>
+</html>
